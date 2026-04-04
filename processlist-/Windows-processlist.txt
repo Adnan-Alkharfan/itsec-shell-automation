@@ -1,0 +1,6 @@
+sshd
+explorer
+winlogon
+svchost
+cmd
+powershell
