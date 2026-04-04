@@ -5,3 +5,7 @@
 2026-04-04 17:30:12 - Processen 'svchost' körs.
 2026-04-04 17:30:12 - VARNING: Processen 'cmd' körs inte.
 2026-04-04 17:30:12 - VARNING: Processen 'powershell' körs inte.
+Sat, Apr  4, 2026  8:48:48 PM - VARNING: Processen 'ssh' körs inte.
+Sat, Apr  4, 2026  8:48:48 PM - VARNING: Processen 'cron' körs inte.
+Sat, Apr  4, 2026  8:48:48 PM - VARNING: Processen 'apache2' körs inte.
+Sat, Apr  4, 2026  8:48:48 PM - Kontroller slutförda.
