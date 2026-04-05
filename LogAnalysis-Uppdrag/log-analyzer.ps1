@@ -1,24 +1,17 @@
-# Filvägar
-$InputFile = "sample.log"
-$LogFile   = "analysis.log"
-
-# Funktion för loggning
-function Write-Log {
-    param(
-        [string]$Message
-    )
-
-    $entry = "$(Get-Date) - $Message"
-    $entry | Tee-Object -FilePath $LogFile -Append
-}
-
-# Räknare
+# Init counters
 $failed = 0
-$error  = 0
+$errorCount = 0
 $unauth = 0
 
-# Läs filen rad för rad
-foreach ($line in Get-Content $InputFile) {
+# Function to write logs
+function Write-Log {
+    param([string]$Message)
+    Add-Content -Path "analysis.log" -Value $Message
+}
+
+# Read log file
+Get-Content "sample.log" | ForEach-Object {
+    $line = $_
 
     if ($line -match "failed") {
         Write-Log "Misslyckat inloggningsförsök: $line"
@@ -27,7 +20,7 @@ foreach ($line in Get-Content $InputFile) {
 
     if ($line -match "error") {
         Write-Log "Error hittad: $line"
-        $error++
+        $errorCount++
     }
 
     if ($line -match "unauthorized") {
@@ -39,5 +32,5 @@ foreach ($line in Get-Content $InputFile) {
 # Slutrapport
 Write-Log "ANALYS KLAR"
 Write-Log "Antal misslyckade inloggningar: $failed"
-Write-Log "Antal errors: $error"
+Write-Log "Antal errors: $errorCount"
 Write-Log "Antal obehöriga försök: $unauth"
