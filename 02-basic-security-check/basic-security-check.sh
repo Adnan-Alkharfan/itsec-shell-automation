@@ -27,4 +27,3 @@ read -p "Ange användarnamn att kontrollera: " user_input
 check_user "$user_input"
 
 log "Kontroller slutförda."
-bash basic-security-check.sh
