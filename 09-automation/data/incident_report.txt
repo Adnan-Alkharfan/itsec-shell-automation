@@ -1,0 +1,9 @@
+HIGH: Riskabel Windows-tjänst upptäckt – RemoteRegistry
+HIGH: Riskabel Windows-tjänst upptäckt – Spooler
+INFO (från anomalies.log): Sun, Apr 12, 2026  3:22:07 PM - Startar Linux-kontroll...
+INFO (från anomalies.log): Sun, Apr 12, 2026  3:22:07 PM - Processlista insamlad.
+INFO (från anomalies.log): Sun, Apr 12, 2026  3:22:07 PM - JSON exporterad till ../data/linux_processes.json
+INFO (från anomalies.log): Sun, Apr 12, 2026  3:22:07 PM - Linux-kontroll klar.
+INFO (från anomalies.log): 04/12/2026 16:53:37 - VARNING â€“ Riskabel Windows-tjÃ¤nst upptÃ¤ckt: RemoteRegistry
+INFO (från anomalies.log): 04/12/2026 16:53:37 - VARNING â€“ Riskabel Windows-tjÃ¤nst upptÃ¤ckt: Spooler
+INFO (från anomalies.log): 04/12/2026 16:53:37 - Windows-kontroll klar.
