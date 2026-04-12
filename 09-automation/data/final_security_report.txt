@@ -1,0 +1,10 @@
+WARNING: Riskabel Windows-tj‰nst ñ RemoteRegistry
+WARNING: Riskabel Windows-tj‰nst ñ Spooler
+= ANOMALI-LOGG =
+Sun, Apr 12, 2026  3:22:07 PM - Startar Linux-kontroll...
+Sun, Apr 12, 2026  3:22:07 PM - Processlista insamlad.
+Sun, Apr 12, 2026  3:22:07 PM - JSON exporterad till ../data/linux_processes.json
+Sun, Apr 12, 2026  3:22:07 PM - Linux-kontroll klar.
+04/12/2026 16:53:37 - VARNING ‚Äì Riskabel Windows-tj√§nst uppt√§ckt: RemoteRegistry
+04/12/2026 16:53:37 - VARNING ‚Äì Riskabel Windows-tj√§nst uppt√§ckt: Spooler
+04/12/2026 16:53:37 - Windows-kontroll klar.
