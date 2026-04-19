@@ -32,11 +32,22 @@ export_json() {
     :
 }
 
+# ---------------------------------------------------------
+# Funktion: Enkel logginsamling (moment 3)
+# Syfte:   Visa hur Bash kan samla systemloggar automatiskt
+# ---------------------------------------------------------
+collect_logs() {
+    grep "failed" /var/log/auth.log >> ../data/anomalies.log
+}
+
+# ---------------------------------------------------------
 # Huvudflöde
+# ---------------------------------------------------------
 main() {
     get_processes
     check_risks
     export_json
+    collect_logs
 }
 
 main

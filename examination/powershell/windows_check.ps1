@@ -49,7 +49,24 @@ function Test-ServiceRisk {
     }
 }
 
+# ---------------------------------------------------------
+# Funktion: Enkel kontroll av systemkonfiguration
+# Syfte:   Kontrollera om viktiga tjänster är stoppade
+# ---------------------------------------------------------
+function Test-ConfigStatus {
+    $critical = "WinDefend", "EventLog"
+
+    foreach ($service in $critical) {
+        $s = Get-Service -Name $service -ErrorAction SilentlyContinue
+        if ($s.Status -ne "Running") {
+            Write-Log "VARNING: Kritisk tjänst ej igång: $service"
+        }
+    }
+}
+
+# ---------------------------------------------------------
 # Huvudflöde
+# ---------------------------------------------------------
 $AllServices = Get-ServiceList
 
 if ($AllServices) {
@@ -60,6 +77,9 @@ if ($AllServices) {
         Export-Csv -Path "../data/windows_output.csv" -NoTypeInformation
 
     Write-Log "Exporterade tjänster till windows_output.csv."
+
+    # Kör enkel konfigurationskontroll
+    Test-ConfigStatus
 
     # Kör enkel riskkontroll
     Test-ServiceRisk -Services $AllServices

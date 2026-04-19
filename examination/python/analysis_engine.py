@@ -1,13 +1,29 @@
-"""
----------------------------------------------------------
-Filnamn: analysis_engine.py
-Syfte:   Analysmotor som korrelerar Linux- och Windowsdata,
-         identifierar anomalier och genererar slutrapport.
-Output:  final_report.txt
-Författare: Adnan
-Datum: 2026-04-14
----------------------------------------------------------
-"""
+#!/usr/bin/env python3
+# ---------------------------------------------------------
+# Filnamn: analysis_engine.py
+# Syfte:   Analysmotor som korrelerar Linux- och Windowsdata,
+#          identifierar anomalier och genererar slutrapport.
+# Output:  final_report.txt
+# Författare: Adnan
+# Datum: 2026-04-14
+# ---------------------------------------------------------
+
+# ---------------------------------------------------------
+# Funktion: Enkel avvikelsedetektion (moment 3)
+# Syfte:   Identifiera misstänkta värden i loggfilen
+# ---------------------------------------------------------
+def detect_anomalies():
+    anomalies = []
+
+    try:
+        with open("../data/anomalies.log", "r") as f:
+            lines = f.readlines()
+            if len(lines) > 10:
+                anomalies.append("För många säkerhetshändelser upptäckta.")
+    except FileNotFoundError:
+        anomalies.append("Loggfil saknas.")
+
+    return anomalies
 
 def load_linux():
     """Läser linux_output.json"""
@@ -44,6 +60,7 @@ def main():
     classify_processes()
     classify_services()
     classify_ip_events()
+    detect_anomalies()
     generate_report()
 
 main()
