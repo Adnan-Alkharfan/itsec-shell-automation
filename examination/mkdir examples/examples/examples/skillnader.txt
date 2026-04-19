@@ -1,0 +1,14 @@
+Bash:
+- Textbaserat
+- Snabbt för systemkontroller
+- Bra för loggar och processer
+
+PowerShell:
+- Objektbaserat
+- Djup åtkomst till Windows
+- Bra för tjänster, Event Logs och AD
+
+Python:
+- Plattformoberoende
+- Stark på analys och databehandling
+- Bra för rapporter och riskmodeller

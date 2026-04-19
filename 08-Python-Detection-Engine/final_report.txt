@@ -1,0 +1,10 @@
+=== USER RISK REPORT ===
+anna: MEDIUM RISK (fails=2, status=active)
+erik: HIGH RISK (fails=3, status=active)
+david: LOW RISK (fails=0, status=disabled)
+lucas: LOW RISK (fails=0, status=active)
+
+=== IP RISK REPORT ===
+10.0.0.55: SUSPICIOUS (fails=2)
+192.168.1.14: SUSPICIOUS (fails=3)
+172.16.0.2: SUSPICIOUS (fails=1)

@@ -1,0 +1,16 @@
+"""
+---------------------------------------------------------
+Exempel: Enkel analys i Python
+Syfte:   Visa hur Python används för databehandling
+---------------------------------------------------------
+"""
+
+import json
+
+# Exempeldata
+data = {"failed_logins": [3, 7, 12, 1]}
+
+# Beräknar medelvärde
+average = sum(data["failed_logins"]) / len(data["failed_logins"])
+
+print(f"Genomsnittliga misslyckade inloggningar: {average}")

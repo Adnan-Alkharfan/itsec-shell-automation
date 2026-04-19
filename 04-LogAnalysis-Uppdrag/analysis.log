@@ -1,0 +1,17 @@
+Sun, Apr  5, 2026  1:40:33 PM - Misslyckat inloggningsförsök: User anna failed login attempt
+Sun, Apr  5, 2026  1:40:33 PM - Error hittad: System error: disk not found
+Sun, Apr  5, 2026  1:40:33 PM - Obehörigt försök: Unauthorized access attempt from 10.0.0.55
+Sun, Apr  5, 2026  1:40:33 PM - Misslyckat inloggningsförsök: User anna failed login attempt
+Sun, Apr  5, 2026  1:40:34 PM - ANALYS KLAR
+Sun, Apr  5, 2026  1:40:34 PM - Antal misslyckade inloggningar: 2
+Sun, Apr  5, 2026  1:40:34 PM - Antal errors: 1
+Sun, Apr  5, 2026  1:40:34 PM - Antal obehöriga försök: 1
+04/05/2026 14:45:16 - Misslyckat inloggningsförsök: User anna failed login attempt
+04/05/2026 14:45:16 - Error hittad: System error: disk not found
+04/05/2026 14:45:16 - Obehörigt försök: Unauthorized access attempt from 10.0.0.55
+04/05/2026 14:45:16 - Misslyckat inloggningsförsök: User anna failed login attempt
+04/05/2026 14:45:16 - Error hittad: Error reading configuration file
+04/05/2026 14:45:16 - ANALYS KLAR
+04/05/2026 14:45:16 - Antal misslyckade inloggningar: 2
+04/05/2026 14:45:16 - Antal errors: 2
+04/05/2026 14:45:16 - Antal obehöriga försök: 1

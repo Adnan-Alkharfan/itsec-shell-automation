@@ -1,0 +1,13 @@
+{
+    "alerts": [
+        "HIGH: Riskabel Windows-tj\u00e4nst uppt\u00e4ckt \u2013 RemoteRegistry",
+        "HIGH: Riskabel Windows-tj\u00e4nst uppt\u00e4ckt \u2013 Spooler",
+        "INFO (fr\u00e5n anomalies.log): Sun, Apr 12, 2026  3:22:07 PM - Startar Linux-kontroll...",
+        "INFO (fr\u00e5n anomalies.log): Sun, Apr 12, 2026  3:22:07 PM - Processlista insamlad.",
+        "INFO (fr\u00e5n anomalies.log): Sun, Apr 12, 2026  3:22:07 PM - JSON exporterad till ../data/linux_processes.json",
+        "INFO (fr\u00e5n anomalies.log): Sun, Apr 12, 2026  3:22:07 PM - Linux-kontroll klar.",
+        "INFO (fr\u00e5n anomalies.log): 04/12/2026 16:53:37 - VARNING \u00e2\u20ac\u201c Riskabel Windows-tj\u00c3\u00a4nst uppt\u00c3\u00a4ckt: RemoteRegistry",
+        "INFO (fr\u00e5n anomalies.log): 04/12/2026 16:53:37 - VARNING \u00e2\u20ac\u201c Riskabel Windows-tj\u00c3\u00a4nst uppt\u00c3\u00a4ckt: Spooler",
+        "INFO (fr\u00e5n anomalies.log): 04/12/2026 16:53:37 - Windows-kontroll klar."
+    ]
+}
