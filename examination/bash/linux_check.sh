@@ -37,7 +37,14 @@ export_json() {
 # Syfte:   Visa hur Bash kan samla systemloggar automatiskt
 # ---------------------------------------------------------
 collect_logs() {
-    grep "failed" /var/log/auth.log >> ../data/anomalies.log
+    echo "Samlar systemloggar..."
+    journalctl -n 50 > ../data/linux_logs.log
+
+    echo "Exporterar processlista..."
+    ps aux > ../data/process_list.log
+
+    echo "Skapar JSON-fil..."
+    echo '{"status": "logs collected"}' > ../data/linux_output.json
 }
 
 # ---------------------------------------------------------

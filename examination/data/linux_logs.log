@@ -1,0 +1,50 @@
+Apr 20 10:41:21 Adnan vsce-sign[580]: Signature archive file size:  15930
+Apr 20 10:41:21 Adnan vsce-sign[580]: Manifest file size:  16701
+Apr 20 10:41:21 Adnan vsce-sign[580]: Signature file size:  19347
+Apr 20 10:41:21 Adnan vsce-sign[580]: ManifestPackageIntegrityPolicy succeeded.
+Apr 20 10:41:21 Adnan vsce-sign[580]: SignatureIntegrityPolicy for primary signature succeeded.
+Apr 20 10:41:22 Adnan vsce-sign[580]: SignatureValidityPolicy for primary signature succeeded.
+Apr 20 10:41:22 Adnan vsce-sign[580]: SignatureIntegrityPolicy for primary timestamp signature succeeded.
+Apr 20 10:41:22 Adnan vsce-sign[580]: SignatureValidityPolicy for primary timestamp signature succeeded.
+Apr 20 10:41:22 Adnan vsce-sign[580]: X.509 certificate chain validation will use the fallback certificate bundle for timestamping.
+Apr 20 10:41:23 Adnan vsce-sign[580]: SignatureTrustPolicy for publisher primary signature timestamp signature succeeded.
+Apr 20 10:41:23 Adnan vsce-sign[580]: X.509 certificate chain validation will use the fallback certificate bundle for code signing.
+Apr 20 10:41:23 Adnan vsce-sign[580]: SignatureTrustPolicy for publisher primary signature succeeded.
+Apr 20 10:41:23 Adnan vsce-sign[580]: SignatureIntegrityPolicy for repository countersignature succeeded.
+Apr 20 10:41:23 Adnan vsce-sign[580]: SignatureValidityPolicy for repository countersignature succeeded.
+Apr 20 10:41:23 Adnan vsce-sign[580]: SignatureIntegrityPolicy for repository countersignature timestamp signature succeeded.
+Apr 20 10:41:23 Adnan vsce-sign[580]: SignatureValidityPolicy for repository countersignature timestamp signature succeeded.
+Apr 20 10:41:23 Adnan vsce-sign[580]: SignatureTrustPolicy for repository countersignature timestamp signature succeeded.
+Apr 20 10:41:23 Adnan vsce-sign[580]: SignatureTrustPolicy for repository countersignature succeeded.
+Apr 20 10:41:23 Adnan vsce-sign[580]: RepositoryCountersignaturePolicy for repository countersignature succeeded with OK.
+Apr 20 10:41:23 Adnan vsce-sign[580]: Primary signature type:  publisher primary signature
+Apr 20 10:41:23 Adnan vsce-sign[580]: Primary signature status:  OK
+Apr 20 10:41:23 Adnan vsce-sign[580]: Timestamp signature status:  OK
+Apr 20 10:41:23 Adnan vsce-sign[580]: Repository countersignature status:  OK
+Apr 20 10:41:23 Adnan vsce-sign[580]: Repository countersignature timestamp status:  OK
+Apr 20 10:41:23 Adnan vsce-sign[580]: Exit code:  Success
+Apr 20 10:41:29 Adnan systemd[1]: systemd-timedated.service: Deactivated successfully.
+Apr 20 10:41:30 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 185.125.190.57:123 (ntp.ubuntu.com).
+Apr 20 10:41:30 Adnan wsl-pro-service[161]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/anr_l/.ubuntupro/.address": open /mnt/c/Users/anr_l/.ubuntupro/.address: no such file or directory
+Apr 20 10:41:40 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 185.125.190.56:123 (ntp.ubuntu.com).
+Apr 20 10:41:42 Adnan unknown: WSL (177) ERROR: CheckConnection: getaddrinfo() failed: -5
+Apr 20 10:41:42 Adnan kernel: hv_balloon: Max. dynamic memory size: 4044 MB
+Apr 20 10:42:02 Adnan wsl-pro-service[161]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/anr_l/.ubuntupro/.address": open /mnt/c/Users/anr_l/.ubuntupro/.address: no such file or directory
+Apr 20 10:42:22 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 185.125.190.57:123 (ntp.ubuntu.com).
+Apr 20 10:42:33 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 185.125.190.58:123 (ntp.ubuntu.com).
+Apr 20 10:42:43 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 91.189.91.157:123 (ntp.ubuntu.com).
+Apr 20 10:42:53 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 185.125.190.56:123 (ntp.ubuntu.com).
+Apr 20 10:43:02 Adnan wsl-pro-service[161]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/anr_l/.ubuntupro/.address": open /mnt/c/Users/anr_l/.ubuntupro/.address: no such file or directory
+Apr 20 10:44:02 Adnan wsl-pro-service[161]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/anr_l/.ubuntupro/.address": open /mnt/c/Users/anr_l/.ubuntupro/.address: no such file or directory
+Apr 20 10:44:08 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 91.189.91.157:123 (ntp.ubuntu.com).
+Apr 20 10:44:18 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 185.125.190.56:123 (ntp.ubuntu.com).
+Apr 20 10:44:28 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 185.125.190.58:123 (ntp.ubuntu.com).
+Apr 20 10:44:38 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 185.125.190.57:123 (ntp.ubuntu.com).
+Apr 20 10:45:02 Adnan wsl-pro-service[161]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/anr_l/.ubuntupro/.address": open /mnt/c/Users/anr_l/.ubuntupro/.address: no such file or directory
+Apr 20 10:46:02 Adnan wsl-pro-service[161]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/anr_l/.ubuntupro/.address": open /mnt/c/Users/anr_l/.ubuntupro/.address: no such file or directory
+Apr 20 10:46:57 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 185.125.190.57:123 (ntp.ubuntu.com).
+Apr 20 10:46:57 Adnan systemd[312]: launchpadlib-cache-clean.service - Clean up old files in the Launchpadlib cache was skipped because of an unmet condition check (ConditionPathExists=/root/.launchpadlib/api.launchpad.net/cache).
+Apr 20 10:47:02 Adnan wsl-pro-service[161]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/anr_l/.ubuntupro/.address": open /mnt/c/Users/anr_l/.ubuntupro/.address: no such file or directory
+Apr 20 10:47:07 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 185.125.190.58:123 (ntp.ubuntu.com).
+Apr 20 10:47:17 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 91.189.91.157:123 (ntp.ubuntu.com).
+Apr 20 10:47:28 Adnan systemd-timesyncd[111]: Timed out waiting for reply from 185.125.190.56:123 (ntp.ubuntu.com).
