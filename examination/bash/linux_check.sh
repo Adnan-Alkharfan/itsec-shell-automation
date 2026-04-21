@@ -1,60 +1,63 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ---------------------------------------------------------
 # Filnamn: linux_check.sh
-# Syfte:   Utför säkerhetskontroller i Linux, analyserar
-#          processer och identifierar risker.
-# Output:  JSON-data + loggar
+# Syfte:   Samla in Linux-processer, loggar och upptäcka
+#          avvikelser för vidare analys i Python.
+# Output:  linux_output.json, anomalies.log
 # Författare: Adnan
-# Datum: $(date +%Y-%m-%d)
+# Datum: 2026-04-14
 # ---------------------------------------------------------
 
-# Filvägar för output och loggar
-output="../data/linux_output.json"
-logfile="../data/anomalies.log"
-
-# Funktion: loggar meddelanden till anomalies.log
-log() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') INFO: $1" >> "$logfile"
-}
-
-# Funktion: hämtar aktiva processer
-get_processes() {
-    processes=$(ps aux)
-}
-
-# Funktion: kontrollerar processer mot en risklista
-check_risks() {
-    :
-}
-
-# Funktion: exporterar resultat till JSON
-export_json() {
-    :
-}
+OUTPUT="../data/linux_output.json"
+ANOMALY_LOG="../data/anomalies.log"
 
 # ---------------------------------------------------------
-# Funktion: Enkel logginsamling (moment 3)
-# Syfte:   Visa hur Bash kan samla systemloggar automatiskt
+# Moment 1 – Samla processer och loggar
 # ---------------------------------------------------------
+collect_processes() {
+    ps aux --no-heading | awk '{print $11}' > /tmp/process_list.txt
+}
+
 collect_logs() {
-    echo "Samlar systemloggar..."
-    journalctl -n 50 > ../data/linux_logs.log
-
-    echo "Exporterar processlista..."
-    ps aux > ../data/process_list.log
-
-    echo "Skapar JSON-fil..."
-    echo '{"status": "logs collected"}' > ../data/linux_output.json
+    journalctl -n 50 > /tmp/linux_logs.txt
 }
 
 # ---------------------------------------------------------
-# Huvudflöde
+# Moment 3 – Enkel avvikelsedetektion
+# ---------------------------------------------------------
+detect_anomalies() {
+    local count
+    count=$(wc -l < /tmp/linux_logs.txt)
+
+    if [ "$count" -gt 100 ]; then
+        echo "För många logghändelser i Linux." >> "$ANOMALY_LOG"
+    fi
+}
+
+# ---------------------------------------------------------
+# Moment 4 – Exportera data till JSON
+# ---------------------------------------------------------
+export_to_json() {
+    {
+        echo "{"
+        echo "\"processes\": ["
+        sed 's/.*/"&"/' /tmp/process_list.txt | paste -sd "," -
+        echo "],"
+        echo "\"logs\": ["
+        sed 's/.*/"&"/' /tmp/linux_logs.txt | paste -sd "," -
+        echo "]"
+        echo "}"
+    } > "$OUTPUT"
+}
+
+# ---------------------------------------------------------
+# Huvudflöde – Moment 4 komplett
 # ---------------------------------------------------------
 main() {
-    get_processes
-    check_risks
-    export_json
+    collect_processes
     collect_logs
+    detect_anomalies
+    export_to_json
 }
 
 main

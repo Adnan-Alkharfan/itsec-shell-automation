@@ -1,89 +1,54 @@
 # ---------------------------------------------------------
 # Filnamn: windows_check.ps1
-# Syfte:   Grundstruktur för Windows-säkerhetskontroller.
-#          Skriptet hämtar tjänster, loggar händelser och
-#          förbereder data för vidare analys.
-# Output:  CSV-data + loggar
+# Syfte:   Samla Windows-tjänster, identifiera risker och
+#          generera CSV + anomalier för Python-analysen.
+# Output:  windows_output.csv, anomalies.log
 # Författare: Adnan
-# Datum: (Get-Date -Format "yyyy-MM-dd")
+# Datum: 2026-04-14
 # ---------------------------------------------------------
 
-# Loggfil
-$LogFile = "../data/anomalies.log"
+$csvPath = "../data/windows_output.csv"
+$anomalyPath = "../data/anomalies.log"
 
-# Funktion: skriver loggar med tidsstämpel
+# ---------------------------------------------------------
+# Moment 1 – Samla tjänster
+# ---------------------------------------------------------
+function Get-ServicesData {
+    Get-Service | Select-Object Name, Status |
+        Export-Csv -Path $csvPath -NoTypeInformation
+}
+
+# ---------------------------------------------------------
+# Moment 3 – Kontrollera kritiska tjänster
+# ---------------------------------------------------------
 function Test-ConfigStatus {
-    $critical = "WinDefend", "EventLog"
+    $critical = @("WinDefend", "EventLog")
 
-    foreach ($service in $critical) {
-        $s = Get-Service -Name $service -ErrorAction SilentlyContinue
-        if ($s.Status -ne "Running") {
-            Write-Log "VARNING: Kritisk tjänst ej igång: $service"
-        }
-    }
-}
-
-function Write-Log {
-    param([string]$Message)
-
-    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    Add-Content -Path $LogFile -Value "$timestamp INFO: $Message"
-}
-
-# Funktion: hämtar alla tjänster (grundläggande moment)
-function Get-ServiceList {
-    try {
-        $services = Get-Service
-        Write-Log "Hämtade tjänstelistan."
-        return $services
-    }
-    catch {
-        Write-Log "FEL: Kunde inte hämta tjänster. $_"
-        return $null
-    }
-}
-
-# Funktion: enkel riskkontroll (moment 1 nivå)
-function Test-ServiceRisk {
-    param([array]$Services)
-
-    # Enkel risklista för moment 1
-    $RiskList = @(
-        "RemoteRegistry",
-        "Telnet"
-    )
-
-    foreach ($service in $Services) {
-        if ($RiskList -contains $service.Name) {
-            Write-Log "Riskabel tjänst upptäckt: $($service.Name)"
+    foreach ($svc in $critical) {
+        $service = Get-Service -Name $svc -ErrorAction SilentlyContinue
+        if ($service.Status -ne "Running") {
+            Add-Content -Path $anomalyPath -Value "Kritisk tjänst ej aktiv: $svc"
         }
     }
 }
 
 # ---------------------------------------------------------
-# Funktion: Enkel kontroll av systemkonfiguration
-# Syfte:   Kontrollera om viktiga tjänster är stoppade
+# Moment 3 – Identifiera riskabla tjänster
 # ---------------------------------------------------------
-# ---------------------------------------------------------
-# Huvudflöde
-# ---------------------------------------------------------
-$AllServices = Get-ServiceList
+function Test-RiskyServices {
+    $risky = @("RemoteRegistry", "Telnet", "SNMP")
 
-if ($AllServices) {
-
-    # Exportera tjänster till CSV (krav i moment 1)
-    $AllServices |
-        Select-Object Name, Status, DisplayName |
-        Export-Csv -Path "../data/windows_output.csv" -NoTypeInformation
-
-    Write-Log "Exporterade tjänster till windows_output.csv."
-
-    # Kör enkel konfigurationskontroll
-    Test-ConfigStatus
-
-    # Kör enkel riskkontroll
-    Test-ServiceRisk -Services $AllServices
+    foreach ($svc in $risky) {
+        $service = Get-Service -Name $svc -ErrorAction SilentlyContinue
+        if ($service -and $service.Status -eq "Running") {
+            Add-Content -Path $anomalyPath -Value "Riskabel tjänst aktiv: $svc"
+        }
+    }
 }
-else {
-    Write-Log "FEL: Inga tjänster kunde analyseras."
-}
+
+# ---------------------------------------------------------
+# Huvudflöde – Moment 4 komplett
+# ---------------------------------------------------------
+Test-ConfigStatus
+Get-ServicesData
+Test-RiskyServices
