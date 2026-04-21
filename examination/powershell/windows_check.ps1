@@ -12,6 +12,17 @@
 $LogFile = "../data/anomalies.log"
 
 # Funktion: skriver loggar med tidsstämpel
+function Test-ConfigStatus {
+    $critical = "WinDefend", "EventLog"
+
+    foreach ($service in $critical) {
+        $s = Get-Service -Name $service -ErrorAction SilentlyContinue
+        if ($s.Status -ne "Running") {
+            Write-Log "VARNING: Kritisk tjänst ej igång: $service"
+        }
+    }
+}
+
 function Write-Log {
     param([string]$Message)
 
@@ -53,17 +64,6 @@ function Test-ServiceRisk {
 # Funktion: Enkel kontroll av systemkonfiguration
 # Syfte:   Kontrollera om viktiga tjänster är stoppade
 # ---------------------------------------------------------
-function Test-ConfigStatus {
-    $critical = "WinDefend", "EventLog"
-
-    foreach ($service in $critical) {
-        $s = Get-Service -Name $service -ErrorAction SilentlyContinue
-        if ($s.Status -ne "Running") {
-            Write-Log "VARNING: Kritisk tjänst ej igång: $service"
-        }
-    }
-}
-
 # ---------------------------------------------------------
 # Huvudflöde
 # ---------------------------------------------------------

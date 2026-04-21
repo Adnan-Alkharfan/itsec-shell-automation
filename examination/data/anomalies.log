@@ -1,0 +1,3 @@
+2026-04-21 19:55:31 INFO: Hämtade tjänstelistan.
+2026-04-21 19:55:31 INFO: Exporterade tjänster till windows_output.csv.
+2026-04-21 19:55:31 INFO: Riskabel tjänst upptäckt: RemoteRegistry
