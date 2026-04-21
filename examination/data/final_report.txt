@@ -1,0 +1,7 @@
+=== Slutrapport – Moment 4 ===
+
+Antal Linux-processer: 0
+Antal Windows-tjänster: 277
+
+Anomalier:
+Inga anomalier upptäckta.

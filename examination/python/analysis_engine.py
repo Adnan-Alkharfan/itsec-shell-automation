@@ -8,11 +8,13 @@
 # Datum: 2026-04-14
 # ---------------------------------------------------------
 
+import json
+import csv
+
 # ---------------------------------------------------------
 # Funktion: Enkel avvikelsedetektion (moment 3)
-# Syfte:   Identifiera misstänkta värden i loggfilen
 # ---------------------------------------------------------
-def detect_anomalies():
+def detect_anomalies(linux_data, windows_data):
     anomalies = []
 
     try:
@@ -25,42 +27,82 @@ def detect_anomalies():
 
     return anomalies
 
+
+# ---------------------------------------------------------
+# Moment 4 – Ladda data
+# ---------------------------------------------------------
 def load_linux():
-    """Läser linux_output.json"""
-    pass
+    try:
+        with open("../data/linux_output.json", "r") as f:
+            return json.load(f)
+    except:
+        return {}
 
 def load_windows():
-    """Läser windows_output.csv"""
-    pass
+    try:
+        with open("../data/windows_output.csv", "r") as f:
+            reader = csv.DictReader(f)
+            return list(reader)
+    except:
+        return []
 
 def load_anomalies():
-    """Läser anomalies.log"""
+    try:
+        with open("../data/anomalies.log", "r") as f:
+            return f.readlines()
+    except:
+        return []
+
+
+# ---------------------------------------------------------
+# Klassificeringsfunktioner (moment 1 placeholders)
+# ---------------------------------------------------------
+def classify_processes(linux_data):
     pass
 
-def classify_processes():
-    """Analyserar processdata"""
+def classify_services(windows_data):
     pass
 
-def classify_services():
-    """Analyserar tjänstdata"""
+def classify_ip_events(linux_data):
     pass
 
-def classify_ip_events():
-    """Analyserar nätverks- eller logghändelser"""
-    pass
 
-def generate_report():
-    """Skapar slutrapporten"""
-    pass
+# ---------------------------------------------------------
+# Rapportgenerator (moment 4)
+# ---------------------------------------------------------
+def generate_report(linux_data, windows_data, anomalies):
+    with open("../data/final_report.txt", "w") as f:
+        f.write("=== Slutrapport – Moment 4 ===\n\n")
 
+        f.write("Antal Linux-processer: ")
+        f.write(str(len(linux_data.get("processes", []))) + "\n")
+
+        f.write("Antal Windows-tjänster: ")
+        f.write(str(len(windows_data)) + "\n\n")
+
+        f.write("Anomalier:\n")
+        if anomalies:
+            for a in anomalies:
+                f.write("- " + a + "\n")
+        else:
+            f.write("Inga anomalier upptäckta.\n")
+
+
+# ---------------------------------------------------------
+# Huvudflöde – Moment 4 komplett
+# ---------------------------------------------------------
 def main():
-    load_linux()
-    load_windows()
-    load_anomalies()
-    classify_processes()
-    classify_services()
-    classify_ip_events()
-    detect_anomalies()
-    generate_report()
+    linux_data = load_linux()
+    windows_data = load_windows()
+    anomaly_lines = load_anomalies()
+
+    classify_processes(linux_data)
+    classify_services(windows_data)
+    classify_ip_events(linux_data)
+
+    anomalies = detect_anomalies(linux_data, windows_data)
+
+    generate_report(linux_data, windows_data, anomalies)
+
 
 main()
