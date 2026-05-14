@@ -1,3 +1,1 @@
----- Anomaly Log ----
-Risk: Netcat process detected (/usr/lib/systemd/systemd-timesyncd)
-Info: Python process running (/usr/bin/python3)
+---- Windows Anomaly Log ----
