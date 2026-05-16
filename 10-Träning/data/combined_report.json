@@ -1,0 +1,20 @@
+{
+    "timestamp": "2026-05-16 14:07:56",
+    "linux_process_count": 29,
+    "windows_process_count": 171,
+    "total_processes": 200,
+    "linux_sample": [
+        "/sbin/init",
+        "/init",
+        "plan9",
+        "/usr/lib/systemd/systemd-journald",
+        "/usr/lib/systemd/systemd-udevd"
+    ],
+    "windows_sample": [
+        "AggregatorHost",
+        "Code",
+        "Code",
+        "Code",
+        "Code"
+    ]
+}
