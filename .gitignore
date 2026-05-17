@@ -1,0 +1,8 @@
+venv/
+output/
+Python-3.12.3/
+__pycache__/
+*.pyc
+*.log
+*.zip
+*.tgz
